@@ -1,0 +1,17 @@
+<div class="question-content">
+  <mat-card class="question-card" *ngFor="let question of questions; let i = index">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-subtitle></mat-card-subtitle>
+      <mat-card-title>{{question.question}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="open(question.url)">Open</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div class="question-pagination">
+  <button mat-raised-button color="primary" class="spacer" (click)="previous()">Previous</button>
+  <button mat-raised-button color="accent" (click)="next()">Next</button>
+</div>
