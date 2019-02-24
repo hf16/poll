@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../core/appState';
-import {OpenSidenav, CloseSidenav, SetAppTitle} from '../../core/layout/layout.actions';
+import {SetAppTitle} from '../../core/layout/layout.actions';
 import {QuestionService} from '../../core/services/question.service';
 import {Question} from '../../core/models/question';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -41,13 +41,12 @@ export class QuestionDetailComponent implements OnInit {
     this.router.navigate(['questions']);
   }
 
-  vote(choiceUrl: string) {
-    this.questionService.vote(choiceUrl).subscribe((response) => {
+  save(choice: any) {
+    this.questionService.vote(choice.url).subscribe((response) => {
       console.log(response);
       this.router.navigate(['questions']);
     }, error => {
       console.log('error', JSON.stringify(error));
     });
   }
-
 }
